@@ -1,0 +1,2 @@
+pair_style meam
+pair_coeff * * example/library.meam Co Ni Cr Fe Mn example/CoNiCrFeMn.meam Co Ni Cr Fe Mn

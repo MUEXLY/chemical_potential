@@ -1,0 +1,78 @@
+# some default settings
+echo log
+units ${units}
+newton on
+boundary p p p
+atom_style atomic
+atom_modify map yes
+neighbor 1.0 bin
+thermo 100
+
+# create lattice
+include ${lattice_file}
+
+include ${interactions_file}
+include ${composition_file}
+
+min_style cg
+min_modify dmax ${dmax} line quadratic
+fix press_rel all box/relax aniso ${pressure} vmax ${vmax}
+minimize ${etol} ${ftol} ${maxsteps} ${maxsteps}
+set group all image 0 0 0
+write_data ${relaxed_data_file}
+unfix press_rel
+
+# calculate the enthalpy per atom, print it to a file so we can read it into a post-processing script
+
+thermo_style custom step temp etotal press vol enthalpy
+variable energy equal "pe"
+reset_timestep 0
+run 0
+
+# initialize files for vacant energies and each occupying energy
+# printing also clears file
+
+variable header string "# init type"
+
+variable print_index loop ${ntypes}
+label print_loop
+	
+variable header string "${header} E_${print_index}"
+
+next print_index
+jump SELF print_loop
+
+print "${header}" file ${occupying_energies_file}
+
+# loop through all sites
+
+variable num_atoms equal "count(all)"
+
+variable site loop ${num_atoms}
+label insertions_loop
+
+run 0
+variable t equal type[v_site]
+
+delete_atoms group all
+read_data ${relaxed_data_file} add merge
+
+# loop through all atom types
+
+variable type_label loop ${ntypes}
+variable row string "${t}"
+label type_loop
+
+# insert type at site, print occupying energy to file
+reset_timestep 0
+set atom ${site} type ${type_label}
+minimize ${etol} ${ftol} ${maxsteps} ${maxsteps}
+variable row string "${row} ${energy}"
+
+next type_label
+jump SELF type_loop
+
+print "${row}" append ${occupying_energies_file}
+
+next site
+jump SELF insertions_loop

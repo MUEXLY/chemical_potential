@@ -1,0 +1,48 @@
+{
+    "launch_options": {
+        "mpi_args": [
+        ],
+        "env_vars": {
+            "OMP_NUM_THREADS": 1
+        },
+        "np": 32,
+        "exec": "../software/lammps/lammps-2Aug2023/build/lmp",
+        "lmp_options": "",
+        "log_file": "example/log.lammps"
+    },
+    "lattice": {
+        "lattice": "fcc 3.0 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1",
+        "region": "box block 0 5 0 5 0 5",
+        "file": "temps/lattice.txt"
+    },
+    "solution": {
+        "ntypes": 5,
+        "concentrations": [
+            [0.15, 0.20, 0.25],
+            [0.15, 0.20, 0.25],
+            [0.15, 0.20, 0.25],
+            [0.15, 0.20, 0.25],
+            [0.15, 0.20, 0.25]
+        ],
+        "file": "temps/solutions.txt"
+    },
+    "interactions": {
+        "pair_style": "meam",
+        "pair_coeff": "* * example/library.meam Co Ni Cr Fe Mn example/CoNiCrFeMn.meam Co Ni Cr Fe Mn",
+        "file": "temps/interactions.txt"
+    },
+    "extra_vars": {
+        "units": "metal",
+        "dmax": 1.0e-3,
+        "pressure": 0.0,
+        "vmax": 0.001,
+        "etol": 0.0,
+        "ftol": 1.0e-8,
+        "maxsteps": 100000
+    },
+    "outputs": {
+        "relaxed_data": "example/cantor_relaxed.dat",
+        "occupying_energies": "example/occupying.txt",
+        "chemical_potentials": "example/chemical_potentials.txt"
+    }
+}
