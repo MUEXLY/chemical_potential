@@ -22,8 +22,6 @@ set group all image 0 0 0
 write_data ${relaxed_data_file}
 unfix press_rel
 
-# calculate the enthalpy per atom, print it to a file so we can read it into a post-processing script
-
 thermo_style custom step temp etotal press vol enthalpy
 variable energy equal "pe"
 reset_timestep 0

@@ -56,7 +56,7 @@ do
   var_str+=" -var ${var} $(echo ${vars_dict} | jq --arg keyvar "$var" '.[$keyvar]')"
 done
 
-header="# "
+header=""
 
 for((i=1; i<=$ntypes; i++)) {
   header+="x_${i} "
@@ -68,19 +68,22 @@ for((i=1; i<=$ntypes; i++)) {
 chemical_potentials_file=$(cfg '.outputs.chemical_potentials')
 echo ${header} > ${chemical_potentials_file}
 
-solution_file=$(cfg '.solution.file')
+all_compositions_file=$(cfg '.solution.all_compositions_file')
+single_composition_file=$(cfg '.solution.single_composition_file')
 
 # print out possible compositions
-python get_compositions.py $(cfg '.solution.concentrations') > ${solution_file}
+python src/get_compositions.py $(cfg '.solution.concentrations') > ${all_compositions_file}
 while read p
 do
-  python get_composition_lines.py $p > temps/solution.txt
+  python src/get_composition_lines.py $p > ${single_composition_file}
 
   # call LAMMPS
   env ${envvars} mpirun ${mpi_args} -np ${np} ${lmp} ${options} \
     -in in.insertions -echo log -log $(cfg '.launch_options.log_file') \
-    -var composition_file temps/solution.txt ${var_str} > /dev/null < /dev/null
+    -var composition_file ${single_composition_file} ${var_str} > /dev/null < /dev/null
   gzip --force ${occupying_energies_file}
 
-  python chemical_potentials.py ${occupying_energies_file}.gz >> ${chemical_potentials_file}
-done < ${solution_file}
+  python src/chemical_potentials.py ${occupying_energies_file}.gz >> ${chemical_potentials_file}
+done < ${all_compositions_file}
+
+Rscript src/fit.r ${chemical_potentials_file} > $(cfg '.outputs.fit')

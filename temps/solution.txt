@@ -1,4 +1,0 @@
-set type 1 type/ratio 2 0.25 123456
-set type 1 type/ratio 3 0.26666666666666666 123456
-set type 1 type/ratio 4 0.2727272727272727 123456
-set type 1 type/ratio 5 0.37499999999999994 123456

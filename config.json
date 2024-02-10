@@ -8,12 +8,12 @@
         "np": 32,
         "exec": "../software/lammps/lammps-2Aug2023/build/lmp",
         "lmp_options": "",
-        "log_file": "example/log.lammps"
+        "log_file": "example/output/log.lammps"
     },
     "lattice": {
         "lattice": "fcc 3.0 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1",
         "region": "box block 0 5 0 5 0 5",
-        "file": "temps/lattice.txt"
+        "file": "example/output/lattice.txt"
     },
     "solution": {
         "ntypes": 5,
@@ -24,12 +24,13 @@
             [0.15, 0.20, 0.25],
             [0.15, 0.20, 0.25]
         ],
-        "file": "temps/solutions.txt"
+        "all_compositions_file": "example/output/solutions.txt",
+        "single_composition_file": "example/output/solution.txt"
     },
     "interactions": {
         "pair_style": "meam",
-        "pair_coeff": "* * example/library.meam Co Ni Cr Fe Mn example/CoNiCrFeMn.meam Co Ni Cr Fe Mn",
-        "file": "temps/interactions.txt"
+        "pair_coeff": "* * example/input/library.meam Co Ni Cr Fe Mn example/input/CoNiCrFeMn.meam Co Ni Cr Fe Mn",
+        "file": "example/output/interactions.txt"
     },
     "extra_vars": {
         "units": "metal",
@@ -41,8 +42,9 @@
         "maxsteps": 100000
     },
     "outputs": {
-        "relaxed_data": "example/cantor_relaxed.dat",
-        "occupying_energies": "example/occupying.txt",
-        "chemical_potentials": "example/chemical_potentials.txt"
+        "relaxed_data": "example/output/cantor_relaxed.dat",
+        "occupying_energies": "example/output/occupying.txt",
+        "chemical_potentials": "example/output/chemical_potentials.txt",
+        "fit": "example/output/fit.txt"
     }
 }
