@@ -36,7 +36,17 @@ chmod 755 chemical_potentials.sh
 This will output a file with information about chemical potential fitting at [example/output/fit.txt](https://github.com/jwjeffr/chemical_potential_bulk/blob/main/example/output/fit.txt):
 
 ```
+Call:
+lm(formula = formula(eqn), data = data)
 
+Coefficients:
+             mu_1      mu_2      mu_3      mu_4      mu_5    
+(Intercept)  -4.54043  -4.75432  -4.01203  -4.18014  -2.70191
+x_1           0.16048   0.31721   0.22993  -0.32539  -0.42984
+x_2           0.17556   0.39052   0.08301  -0.15395  -0.58917
+x_3           0.20869   0.20708  -0.10869   0.12875  -0.47606
+x_4          -0.18093   0.13165   0.29096  -0.04310  -0.28880
+x_5                NA        NA        NA        NA        NA
 ```
 
 There is a row of ``NA``s because there are only 4 independent compositional variables for a 5 element solution (since the sum of concentrations has to be exactly ``1``). Each column defines a set of coefficients, including the intercept $\mu_\alpha^\circ$ and fitting parameters $A_{\alpha\beta}$, which are defined in [chemical_potential_calculation.pdf](https://github.com/jwjeffr/chemical_potential_bulk/blob/main/chemical_potential_calculation.pdf).
