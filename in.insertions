@@ -8,12 +8,12 @@ atom_modify map yes
 neighbor 1.0 bin
 thermo 100
 
-# create lattice
+# create lattice and solution
 include ${lattice_file}
-
 include ${interactions_file}
 include ${composition_file}
 
+# minimize initial configuration at constant pressure, write to file for later
 min_style cg
 min_modify dmax ${dmax} line quadratic
 fix press_rel all box/relax aniso ${pressure} vmax ${vmax}
@@ -27,25 +27,19 @@ variable energy equal "pe"
 reset_timestep 0
 run 0
 
-# initialize files for vacant energies and each occupying energy
-# printing also clears file
-
+# create header for occupying energies file
 variable header string "# init type"
-
 variable print_index loop ${ntypes}
 label print_loop
-	
 variable header string "${header} E_${print_index}"
-
 next print_index
 jump SELF print_loop
 
+# print header to file
 print "${header}" file ${occupying_energies_file}
 
 # loop through all sites
-
 variable num_atoms equal "count(all)"
-
 variable site loop ${num_atoms}
 label insertions_loop
 
@@ -56,7 +50,6 @@ delete_atoms group all
 read_data ${relaxed_data_file} add merge
 
 # loop through all atom types
-
 variable type_label loop ${ntypes}
 variable row string "${t}"
 label type_loop
