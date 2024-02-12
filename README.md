@@ -62,6 +62,7 @@ This codebase heavily builds off of the chemical potential calculation in [our w
     howpublished={\url{https://github.com/jwjeffr/chemical_potential_bulk}},
     year={2024}
 }
+```
 
 # Acknowledgements
 
