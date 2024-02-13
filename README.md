@@ -53,7 +53,7 @@ There is a row of ``NA``s because there are only 4 independent compositional var
 
 For a tutorial on writing your own configuration file, see the documentation at [docs/doc.md](https://github.com/jwjeffr/chemical_potential_bulk/blob/main/docs/doc.md).
 
-This codebase heavily builds off of the chemical potential calculation in [our work on vacancy concentration](https://github.com/jwjeffr/impurities) (TODO replace with arXiv link). If you use any code in this repository, please cite that work as well as the repository itself:
+This codebase heavily builds off of the chemical potential calculation in [our work on vacancy concentration](https://arxiv.org/abs/2402.07324). If you use any code in this repository, please cite that work as well as the repository itself:
 
 ```bibtex
 @misc{jeffries_chemical_potential_bulk,
