@@ -1,3 +1,7 @@
+# ARCHIVED
+
+moved to [github.com/MUEXLY/chemical_potential](https://github.com/MUEXLY/chemical_potential)
+
 # chemical_potential_bulk
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
