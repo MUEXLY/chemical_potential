@@ -33,23 +33,33 @@ chmod 755 chemical_potentials.sh
 ./chemical_potentials.sh config.json
 ```
 
-This will output a file with information about chemical potential fitting at [example/output/fit.txt](https://github.com/muexly/chemical_potential/blob/main/example/output/fit.txt):
+This will output a file with information about chemical potential fitting at [example/output/fit.txt](https://github.com/muexly/chemical_potential/blob/main/example/output/fit.txt). Each chemical potential will have a section that looks like:
 
 ```
+************** FIT FOR mu_1 **************
 Call:
-lm(formula = formula(eqn), data = data)
+lm(formula = formula(eqn), data = chemical_potentials)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0032784 -0.0011208 -0.0003747  0.0009916  0.0058961 
 
 Coefficients:
-             mu_1      mu_2      mu_3      mu_4      mu_5    
-(Intercept)  -4.54043  -4.75432  -4.01203  -4.18014  -2.70191
-x_1           0.16048   0.31721   0.22993  -0.32539  -0.42984
-x_2           0.17556   0.39052   0.08301  -0.15395  -0.58917
-x_3           0.20869   0.20708  -0.10869   0.12875  -0.47606
-x_4          -0.18093   0.13165   0.29096  -0.04310  -0.28880
-x_5                NA        NA        NA        NA        NA
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) -4.379943   0.005581 -784.759  < 2e-16 ***
+x_2          0.015071   0.008850    1.703   0.0953 .  
+x_3          0.048204   0.008787    5.486  1.7e-06 ***
+x_4         -0.341412   0.008845  -38.601  < 2e-16 ***
+x_5         -0.160484   0.008791  -18.255  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.001978 on 46 degrees of freedom
+Multiple R-squared:  0.9834,	Adjusted R-squared:  0.982 
+F-statistic:   683 on 4 and 46 DF,  p-value: < 2.2e-16
 ```
 
-There is a row of ``NA``s because there are only 4 independent compositional variables for a 5 element solution (since the sum of concentrations has to be exactly ``1``). Each column defines a set of coefficients, including the intercept $\mu_\alpha^\circ$ and fitting parameters $A_{\alpha\beta}$, which are defined in [chemical_potential_calculation.pdf](https://github.com/muexly/chemical_potential/blob/main/chemical_potential_calculation.pdf).
+which corresponds to a fit of $\mu_1 = -4.379943 + 0.015071x_2 + 0.048204x_3 - 0.341412x_4 - 0.160484x_5$. Here, the adjusted R-squared is close to $1.0$, indicating an excellent fit.
 
 For a tutorial on writing your own configuration file, see the documentation at [docs/doc.md](https://github.com/muexly/chemical_potential/blob/main/docs/doc.md).
 
