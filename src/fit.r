@@ -1,3 +1,5 @@
+library(car)
+
 chemical_potentials <- read.table(commandArgs()[6], comment.char='', header=TRUE)
 
 num_types <- dim(chemical_potentials)[2] %/% 2
@@ -14,6 +16,20 @@ for (i in 1:num_types) {
 
     eqn <- sprintf("mu_%s ~ %s", as.character(i), compositions_str)
     mod <- lm(formula(eqn), data=chemical_potentials)
-    cat(sprintf("************** FIT FOR mu_%s **************", as.character(i)))
+    
+    cat(sprintf("************** FIT FOR mu_%s **************\n", as.character(i)))
+    
+    cat("------------------------------------\n")
+    cat("TEST FOR CONSTANT VARIANCE\n")
+    print(ncvTest(mod))
+    cat("------------------------------------\n")
+    cat("TEST FOR NORMALLY DISTRIBUTED ERRORS\n")
+    print(shapiro.test(mod$residuals))
+    cat("------------------------------------\n")
+    cat("TEST FOR INDEPENDENCE OF ERRORS\n")
+    print(durbinWatsonTest(mod))
+    cat("------------------------------------\n")
+    cat("MODEL INFORMATION")
     print(summary(mod))
+    cat("------------------------------------\n")
 }

@@ -1,4 +1,24 @@
 ************** FIT FOR mu_1 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.2917373, Df = 1, p = 0.58911
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.9452, p-value = 0.01995
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1     -0.05215275      1.994041   0.796
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -20,7 +40,28 @@ Residual standard error: 0.001978 on 46 degrees of freedom
 Multiple R-squared:  0.9834,	Adjusted R-squared:  0.982 
 F-statistic:   683 on 4 and 46 DF,  p-value: < 2.2e-16
 
+------------------------------------
 ************** FIT FOR mu_2 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 1.757166, Df = 1, p = 0.18498
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.95813, p-value = 0.0694
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1      0.05130711       1.84403   0.418
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -42,7 +83,28 @@ Residual standard error: 0.001645 on 46 degrees of freedom
 Multiple R-squared:  0.9871,	Adjusted R-squared:  0.986 
 F-statistic: 881.4 on 4 and 46 DF,  p-value: < 2.2e-16
 
+------------------------------------
 ************** FIT FOR mu_3 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.1826169, Df = 1, p = 0.66913
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.98069, p-value = 0.5685
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1       0.2278085      1.524131   0.052
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -64,7 +126,28 @@ Residual standard error: 0.001626 on 46 degrees of freedom
 Multiple R-squared:  0.9889,	Adjusted R-squared:  0.9879 
 F-statistic:  1024 on 4 and 46 DF,  p-value: < 2.2e-16
 
+------------------------------------
 ************** FIT FOR mu_4 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.0003185923, Df = 1, p = 0.98576
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.96992, p-value = 0.2194
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1      -0.1939953      2.347991    0.29
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -86,7 +169,28 @@ Residual standard error: 0.001868 on 46 degrees of freedom
 Multiple R-squared:  0.9866,	Adjusted R-squared:  0.9855 
 F-statistic: 849.3 on 4 and 46 DF,  p-value: < 2.2e-16
 
+------------------------------------
 ************** FIT FOR mu_5 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.08548469, Df = 1, p = 0.77
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.97119, p-value = 0.2476
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1       0.1322327      1.665366    0.16
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -108,3 +212,4 @@ Residual standard error: 0.001577 on 46 degrees of freedom
 Multiple R-squared:  0.9945,	Adjusted R-squared:  0.9941 
 F-statistic:  2096 on 4 and 46 DF,  p-value: < 2.2e-16
 
+------------------------------------

@@ -37,6 +37,26 @@ This will output a file with information about chemical potential fitting at [ex
 
 ```
 ************** FIT FOR mu_1 **************
+------------------------------------
+TEST FOR CONSTANT VARIANCE
+Non-constant Variance Score Test 
+Variance formula: ~ fitted.values 
+Chisquare = 0.2917373, Df = 1, p = 0.58911
+------------------------------------
+TEST FOR NORMALLY DISTRIBUTED ERRORS
+
+	Shapiro-Wilk normality test
+
+data:  mod$residuals
+W = 0.9452, p-value = 0.01995
+
+------------------------------------
+TEST FOR INDEPENDENCE OF ERRORS
+ lag Autocorrelation D-W Statistic p-value
+   1     -0.05215275      1.994041   0.796
+ Alternative hypothesis: rho != 0
+------------------------------------
+MODEL INFORMATION
 Call:
 lm(formula = formula(eqn), data = chemical_potentials)
 
@@ -59,7 +79,9 @@ Multiple R-squared:  0.9834,	Adjusted R-squared:  0.982
 F-statistic:   683 on 4 and 46 DF,  p-value: < 2.2e-16
 ```
 
-which corresponds to a fit of $\mu_1 = -4.379943 + 0.015071x_2 + 0.048204x_3 - 0.341412x_4 - 0.160484x_5$. Here, the adjusted R-squared is close to $1.0$, indicating an excellent fit.
+which corresponds to a fit of $\mu_1 = -4.379943 + 0.015071x_2 + 0.048204x_3 - 0.341412x_4 - 0.160484x_5$.
+
+Various tests are performed on the fit, namely a constant variance test, a test for normally distributed errors, and a test for independence of errors. In all cases, the P-value should be far from 0. If it isn't, it does not necessarily mean the model is useless for prediction, but should serve as a soft warning. For example, the P-value for the normally distributed error test in the example is small, indicating that the residual plot has a pattern, or equivalently that a nonlinear model would be a better predictor. However, here, the adjusted R-squared is close to $1.0$, indicating an excellent fit.
 
 For a tutorial on writing your own configuration file, see the documentation at [docs/doc.md](https://github.com/muexly/chemical_potential/blob/main/docs/doc.md).
 
