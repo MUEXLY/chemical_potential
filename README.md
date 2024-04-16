@@ -10,7 +10,7 @@ This repository contains a lightweight LAMMPS interface to calculate chemical po
 
 - [Bash](https://www.gnu.org/software/bash/)
 - [Python 3](https://www.python.org/) with [NumPy](https://numpy.org/)
-- [R](https://www.r-project.org/) with the [car package](https://www.rdocumentation.org/packages/car/)
+- [R](https://www.r-project.org/) with the [car](https://www.rdocumentation.org/packages/car/) and [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/1.0.10) packages
 - [LAMMPS](https://www.lammps.org/)
 
 # Calculation
