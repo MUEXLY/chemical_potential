@@ -1,6 +1,7 @@
 import sys
 from ast import literal_eval
 from copy import deepcopy
+from random import randint
 
 
 def main():
@@ -16,8 +17,9 @@ def main():
     num_types = len(desired_composition)
 
     for i in range(1, num_types):
+        seed = randint(0, 1_000_000)
         print(
-            f"set type 1 type/ratio {i + 1} {desired_composition[i] / current_composition[0]} 123456"
+            f"set type 1 type/ratio {i + 1} {desired_composition[i] / current_composition[0]} {seed:.0f}"
         )
         # "steal" from element at first index, populate into element at index i
         current_composition[i] = desired_composition[i]
