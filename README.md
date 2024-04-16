@@ -33,53 +33,37 @@ chmod 755 chemical_potentials.sh
 ./chemical_potentials.sh config.json
 ```
 
-This will output a file with information about chemical potential fitting at [example/output/fit.txt](https://github.com/muexly/chemical_potential/blob/main/example/output/fit.txt). Each chemical potential will have a section that looks like:
+This will output a file with information about free energy fitting at [example/output/fit.txt](https://github.com/muexly/chemical_potential/blob/main/example/output/fit.txt), which looks like:
 
 ```
-************** FIT FOR mu_1 **************
-------------------------------------
+RMSE: 0.000596320165332659
 TEST FOR CONSTANT VARIANCE
 Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
-Chisquare = 0.2917373, Df = 1, p = 0.58911
-------------------------------------
+Chisquare = 1.887524, Df = 1, p = 0.16948
 TEST FOR NORMALLY DISTRIBUTED ERRORS
 
 	Shapiro-Wilk normality test
 
-data:  mod$residuals
-W = 0.9452, p-value = 0.01995
+data:  .
+W = 0.9914, p-value = 0.9712
 
-------------------------------------
 TEST FOR INDEPENDENCE OF ERRORS
  lag Autocorrelation D-W Statistic p-value
-   1     -0.05215275      1.994041   0.796
+   1      -0.0315274      2.035268   0.672
  Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
 
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0032784 -0.0011208 -0.0003747  0.0009916  0.0058961 
+COEFFICIENTS
+       x_1        x_2        x_3        x_4        x_5    x_1:x_2    x_1:x_3 
+-4.3372780 -4.4035419 -3.7308680 -4.1004472 -2.8015742 -0.1380735 -0.4046895 
+   x_1:x_4    x_1:x_5    x_2:x_3    x_2:x_4    x_2:x_5    x_3:x_4    x_3:x_5 
+-0.5279693 -0.4489919 -0.3709030 -0.5112812 -0.6050082 -0.3005237 -0.6947192 
+   x_4:x_5 
+-0.3663454 
 
-Coefficients:
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) -4.379943   0.005581 -784.759  < 2e-16 ***
-x_2          0.015071   0.008850    1.703   0.0953 .  
-x_3          0.048204   0.008787    5.486  1.7e-06 ***
-x_4         -0.341412   0.008845  -38.601  < 2e-16 ***
-x_5         -0.160484   0.008791  -18.255  < 2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001978 on 46 degrees of freedom
-Multiple R-squared:  0.9834,	Adjusted R-squared:  0.982 
-F-statistic:   683 on 4 and 46 DF,  p-value: < 2.2e-16
 ```
 
-which corresponds to a fit of $\mu_1 = -4.379943 + 0.015071x_2 + 0.048204x_3 - 0.341412x_4 - 0.160484x_5$.
+which corresponds to a fit of $\mu_1 = -4.3372780 - 0.1380735x_2 - 0.4046895x_3 - 0.5279693 - 0.4489919$, $\mu_2 = -4.4035419 -0.1380735x_1 -0.3709030x_3 -0.5112812x_4 -0.6050082x_5$, and so on.
 
 Various tests are performed on the fit, namely a constant variance test, a test for normally distributed errors, and a test for independence of errors. In all cases, the P-value should be far from 0. If it isn't, it does not necessarily mean the model is useless for prediction, but should serve as a soft warning. For example, the P-value for the normally distributed error test in the example is small, indicating that the residual plot has a pattern, or equivalently that a nonlinear model would be a better predictor. However, here, the adjusted R-squared is close to $1.0$, indicating an excellent fit.
 

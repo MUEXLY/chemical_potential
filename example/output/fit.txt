@@ -1,215 +1,24 @@
-************** FIT FOR mu_1 **************
-------------------------------------
+RMSE: 0.000596320165332659
 TEST FOR CONSTANT VARIANCE
 Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
-Chisquare = 0.2917373, Df = 1, p = 0.58911
-------------------------------------
+Chisquare = 1.887524, Df = 1, p = 0.16948
 TEST FOR NORMALLY DISTRIBUTED ERRORS
 
 	Shapiro-Wilk normality test
 
-data:  mod$residuals
-W = 0.9452, p-value = 0.01995
+data:  .
+W = 0.9914, p-value = 0.9712
 
-------------------------------------
 TEST FOR INDEPENDENCE OF ERRORS
  lag Autocorrelation D-W Statistic p-value
-   1     -0.05215275      1.994041   0.796
+   1      -0.0315274      2.035268   0.672
  Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
 
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0032784 -0.0011208 -0.0003747  0.0009916  0.0058961 
-
-Coefficients:
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) -4.379943   0.005581 -784.759  < 2e-16 ***
-x_2          0.015071   0.008850    1.703   0.0953 .  
-x_3          0.048204   0.008787    5.486  1.7e-06 ***
-x_4         -0.341412   0.008845  -38.601  < 2e-16 ***
-x_5         -0.160484   0.008791  -18.255  < 2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001978 on 46 degrees of freedom
-Multiple R-squared:  0.9834,	Adjusted R-squared:  0.982 
-F-statistic:   683 on 4 and 46 DF,  p-value: < 2.2e-16
-
-------------------------------------
-************** FIT FOR mu_2 **************
-------------------------------------
-TEST FOR CONSTANT VARIANCE
-Non-constant Variance Score Test 
-Variance formula: ~ fitted.values 
-Chisquare = 1.757166, Df = 1, p = 0.18498
-------------------------------------
-TEST FOR NORMALLY DISTRIBUTED ERRORS
-
-	Shapiro-Wilk normality test
-
-data:  mod$residuals
-W = 0.95813, p-value = 0.0694
-
-------------------------------------
-TEST FOR INDEPENDENCE OF ERRORS
- lag Autocorrelation D-W Statistic p-value
-   1      0.05130711       1.84403   0.418
- Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
-
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0027867 -0.0011109  0.0000756  0.0007744  0.0041346 
-
-Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) -4.363798   0.004659 -936.65  < 2e-16 ***
-x_1         -0.073308   0.007360   -9.96 4.62e-13 ***
-x_3         -0.183434   0.007335  -25.01  < 2e-16 ***
-x_4         -0.258869   0.007357  -35.19  < 2e-16 ***
-x_5         -0.390519   0.007324  -53.32  < 2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001645 on 46 degrees of freedom
-Multiple R-squared:  0.9871,	Adjusted R-squared:  0.986 
-F-statistic: 881.4 on 4 and 46 DF,  p-value: < 2.2e-16
-
-------------------------------------
-************** FIT FOR mu_3 **************
-------------------------------------
-TEST FOR CONSTANT VARIANCE
-Non-constant Variance Score Test 
-Variance formula: ~ fitted.values 
-Chisquare = 0.1826169, Df = 1, p = 0.66913
-------------------------------------
-TEST FOR NORMALLY DISTRIBUTED ERRORS
-
-	Shapiro-Wilk normality test
-
-data:  mod$residuals
-W = 0.98069, p-value = 0.5685
-
-------------------------------------
-TEST FOR INDEPENDENCE OF ERRORS
- lag Autocorrelation D-W Statistic p-value
-   1       0.2278085      1.524131   0.052
- Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
-
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0037956 -0.0010959 -0.0002425  0.0012933  0.0029920 
-
-Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) -4.120717   0.004571 -901.45   <2e-16 ***
-x_1          0.338619   0.007223   46.88   <2e-16 ***
-x_2          0.191704   0.007250   26.44   <2e-16 ***
-x_4          0.399653   0.007242   55.19   <2e-16 ***
-x_5          0.108692   0.007209   15.08   <2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001626 on 46 degrees of freedom
-Multiple R-squared:  0.9889,	Adjusted R-squared:  0.9879 
-F-statistic:  1024 on 4 and 46 DF,  p-value: < 2.2e-16
-
-------------------------------------
-************** FIT FOR mu_4 **************
-------------------------------------
-TEST FOR CONSTANT VARIANCE
-Non-constant Variance Score Test 
-Variance formula: ~ fitted.values 
-Chisquare = 0.0003185923, Df = 1, p = 0.98576
-------------------------------------
-TEST FOR NORMALLY DISTRIBUTED ERRORS
-
-	Shapiro-Wilk normality test
-
-data:  mod$residuals
-W = 0.96992, p-value = 0.2194
-
-------------------------------------
-TEST FOR INDEPENDENCE OF ERRORS
- lag Autocorrelation D-W Statistic p-value
-   1      -0.1939953      2.347991    0.29
- Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
-
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0032363 -0.0010771 -0.0001281  0.0010313  0.0050110 
-
-Coefficients:
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) -4.223238   0.005290 -798.400  < 2e-16 ***
-x_1         -0.282286   0.008351  -33.803  < 2e-16 ***
-x_2         -0.110854   0.008352  -13.272  < 2e-16 ***
-x_3          0.171853   0.008319   20.659  < 2e-16 ***
-x_5          0.043101   0.008327    5.176 4.86e-06 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001868 on 46 degrees of freedom
-Multiple R-squared:  0.9866,	Adjusted R-squared:  0.9855 
-F-statistic: 849.3 on 4 and 46 DF,  p-value: < 2.2e-16
-
-------------------------------------
-************** FIT FOR mu_5 **************
-------------------------------------
-TEST FOR CONSTANT VARIANCE
-Non-constant Variance Score Test 
-Variance formula: ~ fitted.values 
-Chisquare = 0.08548469, Df = 1, p = 0.77
-------------------------------------
-TEST FOR NORMALLY DISTRIBUTED ERRORS
-
-	Shapiro-Wilk normality test
-
-data:  mod$residuals
-W = 0.97119, p-value = 0.2476
-
-------------------------------------
-TEST FOR INDEPENDENCE OF ERRORS
- lag Autocorrelation D-W Statistic p-value
-   1       0.1322327      1.665366    0.16
- Alternative hypothesis: rho != 0
-------------------------------------
-MODEL INFORMATION
-Call:
-lm(formula = formula(eqn), data = chemical_potentials)
-
-Residuals:
-       Min         1Q     Median         3Q        Max 
--0.0031500 -0.0011342  0.0000775  0.0007683  0.0041264 
-
-Coefficients:
-             Estimate Std. Error t value Pr(>|t|)    
-(Intercept) -2.701907   0.004433 -609.55   <2e-16 ***
-x_1         -0.429836   0.007006  -61.35   <2e-16 ***
-x_2         -0.589174   0.007019  -83.94   <2e-16 ***
-x_3         -0.476062   0.006990  -68.10   <2e-16 ***
-x_4         -0.288802   0.007029  -41.09   <2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Residual standard error: 0.001577 on 46 degrees of freedom
-Multiple R-squared:  0.9945,	Adjusted R-squared:  0.9941 
-F-statistic:  2096 on 4 and 46 DF,  p-value: < 2.2e-16
-
-------------------------------------
+COEFFICIENTS
+       x_1        x_2        x_3        x_4        x_5    x_1:x_2    x_1:x_3 
+-4.3372780 -4.4035419 -3.7308680 -4.1004472 -2.8015742 -0.1380735 -0.4046895 
+   x_1:x_4    x_1:x_5    x_2:x_3    x_2:x_4    x_2:x_5    x_3:x_4    x_3:x_5 
+-0.5279693 -0.4489919 -0.3709030 -0.5112812 -0.6050082 -0.3005237 -0.6947192 
+   x_4:x_5 
+-0.3663454 
