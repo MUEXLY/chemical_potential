@@ -10,7 +10,6 @@ This repository contains a lightweight LAMMPS interface to calculate chemical po
 
 - [Bash](https://www.gnu.org/software/bash/)
 - [Python 3](https://www.python.org/) with [NumPy](https://numpy.org/)
-- [R](https://www.r-project.org/) with the [car](https://www.rdocumentation.org/packages/car/) and [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/1.0.10) packages
 - [LAMMPS](https://www.lammps.org/)
 
 # Calculation
@@ -36,36 +35,15 @@ chmod 755 chemical_potentials.sh
 This will output a file with information about free energy fitting at [example/output/fit.txt](https://github.com/muexly/chemical_potential/blob/main/example/output/fit.txt), which looks like:
 
 ```
-RMSE: 0.000596320165332659
-TEST FOR CONSTANT VARIANCE
-Non-constant Variance Score Test 
-Variance formula: ~ fitted.values 
-Chisquare = 1.887524, Df = 1, p = 0.16948
-TEST FOR NORMALLY DISTRIBUTED ERRORS
-
-	Shapiro-Wilk normality test
-
-data:  .
-W = 0.9914, p-value = 0.9712
-
-TEST FOR INDEPENDENCE OF ERRORS
- lag Autocorrelation D-W Statistic p-value
-   1      -0.0315274      2.035268   0.672
- Alternative hypothesis: rho != 0
-
-COEFFICIENTS
-       x_1        x_2        x_3        x_4        x_5    x_1:x_2    x_1:x_3 
--4.3372780 -4.4035419 -3.7308680 -4.1004472 -2.8015742 -0.1380735 -0.4046895 
-   x_1:x_4    x_1:x_5    x_2:x_3    x_2:x_4    x_2:x_5    x_3:x_4    x_3:x_5 
--0.5279693 -0.4489919 -0.3709030 -0.5112812 -0.6050082 -0.3005237 -0.6947192 
-   x_4:x_5 
--0.3663454 
-
+RMSE: 0.0007686195179619156
+PCC: 0.999801
+x_1 x_2 x_3 x_4 x_5 x_1x_2 x_1x_3 x_1x_4 x_1x_5 x_2x_3 x_2x_4 x_2x_5 x_3x_4 x_3x_5 x_4x_5
+[-4.33727796 -4.4035419  -3.73086804 -4.10044721 -2.8015742  -0.13807349
+ -0.40468946 -0.52796929 -0.44899191 -0.37090297 -0.51128121 -0.60500817
+ -0.30052369 -0.69471919 -0.36634538]
 ```
 
-which corresponds to a fit of $\mu_1 = -4.3372780 - 0.1380735x_2 - 0.4046895x_3 - 0.5279693 - 0.4489919$, $\mu_2 = -4.4035419 -0.1380735x_1 -0.3709030x_3 -0.5112812x_4 -0.6050082x_5$, and so on.
-
-Various tests are performed on the fit, namely a constant variance test, a test for normally distributed errors, and a test for independence of errors. In all cases, the P-value should be far from 0. If it isn't, it does not necessarily mean the model is useless for prediction, but should serve as a soft warning. For example, the P-value for the normally distributed error test in the example is small, indicating that the residual plot has a pattern, or equivalently that a nonlinear model would be a better predictor. However, here, the adjusted R-squared is close to $1.0$, indicating an excellent fit.
+which corresponds to a fit of $\mu_1 = -4.33727796 -0.13807349x_2 -0.40468946x_3 -0.52796929x_4 -0.44899191x_5$, and so on. Here, the high PCC and low RMSE denote an excellent fit.
 
 For a tutorial on writing your own configuration file, see the documentation at [docs/doc.md](https://github.com/muexly/chemical_potential/blob/main/docs/doc.md).
 

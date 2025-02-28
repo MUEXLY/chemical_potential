@@ -86,4 +86,4 @@ do
   python src/chemical_potentials.py ${occupying_energies_file}.gz >> ${chemical_potentials_file}
 done < ${all_compositions_file}
 
-Rscript src/fit.r ${chemical_potentials_file} > $(cfg '.outputs.fit')
+python src/fit.py ${chemical_potentials_file} > $(cfg '.outputs.fit')
