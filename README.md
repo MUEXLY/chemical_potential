@@ -47,7 +47,7 @@ which corresponds to a fit of $\mu_1 = -4.33727796 -0.13807349x_2 -0.40468946x_3
 
 For a tutorial on writing your own configuration file, see the documentation at [docs/doc.md](https://github.com/muexly/chemical_potential/blob/main/docs/doc.md).
 
-This codebase heavily builds off of the chemical potential calculation in [our work on vacancy concentration](https://arxiv.org/abs/2402.07324). If you use any code in this repository, please cite that work as well as the repository itself:
+This codebase heavily builds off of the chemical potential calculation in [our work on vacancy concentration](https://doi.org/10.1103/PhysRevMaterials.9.033803). If you use any code in this repository, please cite that work as well as the repository itself:
 
 ```bibtex
 @misc{jeffries_chemical_potential_bulk,
